@@ -132,7 +132,7 @@ docker compose up -d
 
 8. Access Kibana in your browser
 
-You can access kibana by typing `http://[IP address]:5601` in your browser.
+You can access Kibana by typing `http://[IP address]:5601` in your browser.
 
 ## Tip
 
