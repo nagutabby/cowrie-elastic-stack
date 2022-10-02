@@ -53,7 +53,9 @@ cd cowrie-elastic-stack
 ```
 
 6. Create a directory and files
+
 You will need to create the following directory and files:
+
 * directory
   * cowrie/log/
 * files
