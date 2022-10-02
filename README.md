@@ -42,6 +42,7 @@ sudo apt install -y git
 ```
 
 4. Install Docker Compose
+
 Please see here: [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
 5. Clone this repository, and change to the directory
