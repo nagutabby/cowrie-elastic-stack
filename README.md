@@ -139,5 +139,5 @@ You can access Kibana by typing `http://[IP address]:5601` in your browser.
 You can check whether Elasticsearch works properly with the following command:
 
 ```bash
-curl http://[IP adress]:9200
+curl http://[IP address]:9200
 ```
