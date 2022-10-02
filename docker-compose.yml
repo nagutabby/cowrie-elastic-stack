@@ -1,0 +1,65 @@
+version: "3"
+services:
+  cowrie:
+    image: cowrie/cowrie
+    ports:
+      - "22:22"
+      - "23:23"
+      - "2222:2222"
+      - "2323:2323"
+    volumes:
+      - ./cowrie/config/cowrie.cfg:/cowrie/cowrie-git/etc/cowrie.cfg
+      - ./cowrie/data/userdb.txt:/cowrie/cowrie-git/data/userdb.txt
+      - ./cowrie/log/cowrie.json:/cowrie/cowrie-git/var/log/cowrie/cowrie.json
+  elasticsearch:
+    build: ./elasticsearch
+    environment:
+      ES_JAVA_OPTS: -Xms256m -Xmx256m
+      discovery.type: single-node
+    ports:
+      - "9200:9200"
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - elasticsearch:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+  kibana:
+    build: ./kibana
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    volumes:
+      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+  logstash:
+    build: ./logstash
+    ports:
+      - "5044:5044"
+    volumes: 
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+    environment:
+      LS_JAVA_OPTS: -Xms256m -Xmx256m
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+  filebeat:
+    build: ./filebeat
+    volumes:
+      - ./cowrie/log/cowrie.json:/var/log/cowrie/cowrie.json
+      - ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+
+volumes:
+  elasticsearch:
+
+networks:
+  elastic:
