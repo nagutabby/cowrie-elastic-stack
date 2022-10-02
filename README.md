@@ -129,3 +129,15 @@ You can run the containers as a daemon with the following command:
 ```bash
 docker compose up -d
 ```
+
+8. Access Kibana in your browser
+
+You can access kibana by typing `http://[IP address]:5601` in your browser.
+
+## Tip
+
+You can check whether Elasticsearch works properly with the following command:
+
+```bash
+curl http://[IP adress]:9200
+```
