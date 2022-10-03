@@ -59,7 +59,7 @@ You will need to create the following directory and files:
 * files
   * cowrie/log/cowrie.json
   * cowrie/config/cowrie.cfg
-  * cowrie/data/userdb.txt
+  * cowrie/config/userdb.txt
 
 
 ```bash
@@ -67,7 +67,7 @@ mkdir cowrie/log/
 touch cowrie/log/cowrie.json
 sudo chmod 777 cowrie/log/cowrie.json
 touch cowrie/config/cowrie.cfg
-touch cowrie/data/userdb.txt
+touch cowrie/config/userdb.txt
 ```
 
 Here is an example of the contents of the file:

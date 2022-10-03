@@ -9,7 +9,7 @@ services:
       - "2323:2323"
     volumes:
       - ./cowrie/config/cowrie.cfg:/cowrie/cowrie-git/etc/cowrie.cfg
-      - ./cowrie/data/userdb.txt:/cowrie/cowrie-git/data/userdb.txt
+      - ./cowrie/config/userdb.txt:/cowrie/cowrie-git/etc/userdb.txt
       - ./cowrie/log/cowrie.json:/cowrie/cowrie-git/var/log/cowrie/cowrie.json
   elasticsearch:
     build: ./elasticsearch
