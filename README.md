@@ -53,7 +53,9 @@ cd cowrie-elastic-stack
 ```
 
 6. Create a directory and files
+
 You will need to create the following directory and files:
+
 * directory
   * cowrie/log/
 * files
@@ -126,4 +128,16 @@ You can run the containers as a daemon with the following command:
 
 ```bash
 docker compose up -d
+```
+
+8. Access Kibana in your browser
+
+You can access Kibana by typing `http://[IP address]:5601` in your browser.
+
+## Tip
+
+You can check whether Elasticsearch works properly with the following command:
+
+```bash
+curl http://[IP address]:9200
 ```
