@@ -1,1 +1,1 @@
-FROM docker.elastic.co/logstash/logstash:8.4.2
+FROM docker.elastic.co/logstash/logstash:8.5.3
